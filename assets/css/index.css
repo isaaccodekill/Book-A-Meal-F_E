@@ -1,0 +1,240 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #4E48BB;
+    font-family: 'Roboto', sans-serif;
+    color: #1A2246;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7rem;
+    overflow: hidden;
+}
+
+.background-image{
+    width: 60%;
+}
+
+.auth-box{
+    width: 400px;
+    background-color: #fff;
+    height: 550px;
+    min-height: 80%;
+    box-shadow: 0 2rem 4rem rgba(26, 34, 70, 0.5); 
+    border-radius: 5px;
+    animation: tinySlideUp 1.2s ease-out 1 forwards;
+    animation-delay: 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+
+.header{
+    width: 100%;
+    padding: 3rem 3rem;
+    padding-bottom: 0;
+}
+
+.header h1{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 0.45rem;
+}
+
+p.sub-heading{
+    font-size: 1.3rem;
+}
+
+.options{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgba(26, 34, 70);
+}
+
+.options div{
+    width: 50%;
+    text-align: center;
+    font-size: 1.7rem;
+    border: 1px solid #1A2246;
+    height: 100%;
+    padding: 2rem 0;
+    border: none;
+    transition: all 0.5s ease-out;
+}
+
+.options div:hover{
+    color: #fff;
+    background-color: #1A2246;
+}
+
+.active{
+    color: #fff;
+    background-color: #1A2246;
+}
+
+.main-box > div{
+    padding: 1.5rem 3rem;
+    display: none;
+}
+
+.input-group{
+    width: 100%;
+    margin: 2rem 0;   
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.input-group label{
+    position: absolute;
+    top: -1.2rem;
+    left: 0.9rem;
+    font-size: 1.3rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    visibility: hidden;;
+}
+.input-group input{
+    width: 100%;
+    font-size: 1.5rem;
+    color: #96989C;
+    border: 1px solid #96989C;
+    padding: 1.2rem 1.5rem;
+    border-radius: 3px;
+
+}
+
+input[type="text"]:focus{
+    border: 2px solid #1A2246;
+    outline: none;
+}
+
+
+.focused label{
+    animation: fadeIn 0.5s ease-out 1 forwards;
+}
+
+.nonFocused label{
+    animation: fadeOut 0.5s ease-out 1 forwards;
+}
+
+.focused ::placeholder{
+    display: none;
+}
+
+button{
+    padding: 1.5rem 1.5rem;
+    width: 100%;
+    border: none;
+    background-color: #1A2246;
+    color: #fff;
+    margin: 2rem 0;
+    border-radius: 3px;
+}
+
+div.visible{
+    display: block !important;
+    animation: visible 1s ease-out delay 1 forwards ;
+}
+
+
+
+/* Animations */
+
+@keyframes tinySlideUp{
+    from{
+        transform: translateY(40px);
+        opacity: 0.9;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        display: block;
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut{
+    from{
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(2rem);
+        visibility: hidden;
+    }
+}
+
+
+@keyframes visible{
+    from{
+        opacity: 0;
+        visibility: hidden;
+    }
+    to{
+        opacity: 1 !important;
+        visibility: visible;
+    }
+}
+
+
+
+@media (max-width: 1200px){
+    .container{
+        padding: 3rem;
+    }
+    .background-image{
+        width: 50%;
+        margin-right: 3rem;
+    }
+}
+
+@media (max-width: 700px){
+    .background-image{
+        display: none
+    }
+    .container{
+        padding: 2rem;
+        justify-content: center;
+    }
+    .auth-box{
+        width: 100%;
+    }
+}
