@@ -8,24 +8,29 @@ const signBtn = document.querySelector(".signUp")
 inputs.forEach(input => {
     input.addEventListener("focus", (e) => {
         e.target.value = ""
+        e.target.parentElement.classList.remove("nonFocused")
         e.target.parentElement.classList.add("focused")
+    })
+    input.addEventListener("blur", (e) => {
+        if(e.target.value === ""){
+            e.target.parentElement.classList.remove("focused")
+            e.target.parentElement.classList.add("nonFocused")
+        }
     })
 })
 
 
-loginBox.classList.add("visible")
 
 loginBtn.addEventListener("click", (e) => {
-    loginBox.classList.add("visible")
-    signBox.classList.remove("visible")
-    signBox.classList.add("hide")
+    loginBox.style.display = "block"
+    signBox.style.display = "none"
     loginBtn.classList.add("active")
     signBtn.classList.remove("active")
 })
 
 signBtn.addEventListener("click", (e) => {
-    loginBox.classList.remove("visible")
-    signBox.classList.add("visible")
+    loginBox.style.display = "none"
+    signBox.style.display = "block"
     signBtn.classList.add("active")
     loginBtn.classList.remove("active")
 })
